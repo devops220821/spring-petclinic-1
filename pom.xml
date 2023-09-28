@@ -27,6 +27,7 @@
     <node.version>v8.11.1</node.version>
     <nohttp-checkstyle.version>0.0.4.RELEASE</nohttp-checkstyle.version>
     <spring-format.version>0.0.27</spring-format.version>
+    <nexus.host.url>http://192.168.242.137:8081</nexus.host.url>
 
   </properties>
 
@@ -112,6 +113,18 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
+  <distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Nexus Release Repository</name>
+			<url>${nexus.host.url}/repository/spring-petclinic-release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>${nexus.host.url}/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
   <build>
     <plugins>
