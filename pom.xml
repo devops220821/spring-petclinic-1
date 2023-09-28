@@ -30,6 +30,13 @@
     <nexus.host.url>http://192.168.242.137:8081</nexus.host.url>
 
   </properties>
+  
+  <repositories>
+    <repository>
+      <id>nexus</id>                   
+      <url>${nexus.host.url}/repository/nexus-group/</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
