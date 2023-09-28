@@ -12,7 +12,7 @@
   </parent>
   <name>petclinic</name>
 
-  <properties>
+   <properties>
  <!-- Generic properties -->
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,13 +27,14 @@
     <nohttp-checkstyle.version>0.0.4.RELEASE</nohttp-checkstyle.version>
     <spring-format.version>0.0.27</spring-format.version>
     <nexus.host.url>http://192.168.242.137:8081</nexus.host.url>
- </properties>
-<repositories>
-    <repository>
-      <id>nexus</id>                   
-      <url>${nexus.host.url}/repository/nexus-group/</url>
-    </repository>
-</repositories>
+  </properties>
+
+  <repositories>
+  <repository>
+    <id>nexus</id>                   
+    <url>${nexus.host.url}/repository/nexus-group/</url>
+  </repository>
+  </repositories>
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
