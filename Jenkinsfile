@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools { 
-        maven 'M3' 
+        maven 'maven3.8.8' 
     }
     options {
         buildDiscarder logRotator( 
@@ -10,12 +10,12 @@ pipeline {
         )
     }
     environment {
-        DOCKERHUB_USERNAME = "kunchalavikram"
+        DOCKERHUB_USERNAME = "rathaiah"
         JOB_NAME = "spring-petclinic"
         APP_NAME = "spring-petclinic"
         IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = "${DOCKERHUB_USERNAME}" + "/" + "${APP_NAME}"
-        REGISTRY_CREDS = 'dockerhub'
+        REGISTRY_CREDS = 'dockerhub-cred'
     }
     stages {
         stage('Cleanup Workspace') {
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Checkout SCM'){
             steps {
-                git url: 'https://github.com/kunchalavikram1427/spring-petclinic.git',
+                git url: 'https://github.com/devopstools2016/spring-petclinic.git',
                 branch: 'main'
             }
         }
@@ -62,6 +62,9 @@ pipeline {
             }
         }
         stage('Run Docker Image'){
+            when {
+                expression { true }
+            }
             steps {
                 sh "docker rm -f petclinic || true"
                 sh "docker run -d -p 8181:8080 --name petclinic ${IMAGE_NAME}:${IMAGE_TAG}"
