@@ -1,7 +1,5 @@
 # Alpine Linux with OpenJDK JRE
-#FROM openjdk:8-jre-alpine
-FROM menard99/alpine-openjdk:8-jre-alpine
-#FROM openjdk:1.8
+FROM openjdk:8-jre-alpine
 
 EXPOSE 8080
 
